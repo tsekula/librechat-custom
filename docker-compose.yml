@@ -76,12 +76,6 @@ services:
     environment:
       - 'OPENROUTER_API_KEY=${OPENROUTER_KEY}'
       - 'IMAGE_GEN_MODEL=${IMAGE_GEN_MODEL:-x-ai/grok-imagine-image-quality}'
-  mcp-svg-gen:
-    container_name: mcp-svg-gen
-    build: ./mcp-svg-gen
-    restart: always
-    environment:
-      - 'OPENROUTER_API_KEY=${OPENROUTER_KEY}'
       - 'SVG_GEN_MODEL=${SVG_GEN_MODEL:-recraft/recraft-v4.1-vector}'
 volumes:
   pgdata2: null

@@ -12,15 +12,10 @@ memory:
 mcpSettings:
   allowedAddresses:
     - 'mcp-image-gen:8000'
-    - 'mcp-svg-gen:8000'
 mcpServers:
-#  image-gen:
- #   type: streamable-http
-  #  url: 'http://mcp-image-gen:8000/mcp'
-   # timeout: 180000
-  svg-gen:
+  image-gen:
     type: streamable-http
-    url: 'http://mcp-svg-gen:8000/mcp'
+    url: 'http://mcp-image-gen:8000/mcp'
     timeout: 180000
 endpoints:
   custom:
