@@ -52,7 +52,8 @@ webSearch:
     # waitFor: 0
     # mobile: false
     # parsePDF: false
-  rerankerType: 'none'
+  rerankerType: 'cohere'
+  cohereApiKey: '${COHERE_API_KEY}'
   scraperTimeout: 7500
   safeSearch: 1
 mcpSettings:
