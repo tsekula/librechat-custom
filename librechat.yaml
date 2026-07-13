@@ -31,8 +31,30 @@ memory:
 webSearch:
   searchProvider: 'tavily'
   tavilyApiKey: '${TAVILY_API_KEY}'
+  tavilySearchOptions:
+    searchDepth: 'basic'
+    maxResults: 5
+    topic: 'general'
+    includeAnswer: false
+    includeRawContent: false
+    # timeRange: 'week'
+    # includeDomains: []
+    # excludeDomains: []
+    timeout: 15000
   scraperProvider: 'firecrawl'
   firecrawlApiKey: '${FIRECRAWL_API_KEY}'
+  firecrawlOptions:
+    formats: ['markdown']
+    onlyMainContent: true
+    blockAds: true
+    removeBase64Images: true
+    timeout: 7500
+    # waitFor: 0
+    # mobile: false
+    # parsePDF: false
+  rerankerType: 'none'
+  scraperTimeout: 7500
+  safeSearch: 1
 mcpSettings:
   allowedAddresses:
     - 'mcp-image-gen:8000'
@@ -47,19 +69,19 @@ endpoints:
       apiKey: "${OPENROUTER_KEY}"
       baseURL: "https://openrouter.ai/api/v1"
       models:
-        default: ["minimax/minimax-m2.7"]
+        default: ["deepseek/deepseek-v4-flash"]
         fetch: true
       titleConvo: true
-      titleModel: "minimax/minimax-m2.7"
+      titleModel: "deepseek/deepseek-v4-flash"
       dropParams: ["stop"]
       modelDisplayLabel: "OpenRouter"
-    - name: "Ollama"
-      apiKey: "sk-ollama"
-      baseURL: "http://host.docker.internal:11434/v1"
-      models:
-        default: ["qwen3.6:27b"]
-        fetch: true
-      modelDisplayLabel: "Ollama"
-      titleConvo: true
-      titleModel: "current_model" # Reuses current model for title generation
-      summarize: false
+#    - name: "Ollama"
+#      apiKey: "sk-ollama"
+#      baseURL: "http://host.docker.internal:11434/v1"
+#      models:
+#        default: ["qwen3.6:27b"]
+#        fetch: true
+#      modelDisplayLabel: "Ollama"
+#      titleConvo: true
+#      titleModel: "current_model" # Reuses current model for title generation
+#      summarize: false
